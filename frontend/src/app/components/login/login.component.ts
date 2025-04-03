@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 // import { environment } from '../../environments/environment'; 
@@ -13,7 +14,11 @@ import { LocalStorageService } from '../../services/local-storage.service';
 export class LoginComponent {
   login = { email: '', mdp: '' };
   token='';
-  constructor(private loginService: LoginService, private localStorageService: LocalStorageService) {}
+  constructor(
+    private loginService: LoginService, 
+    private localStorageService: LocalStorageService,
+    private router: Router
+    ) {}
     ngOnInit(): void {
     }
     loginManager(): void {
@@ -23,6 +28,7 @@ export class LoginComponent {
           if(data.message="bienvenue"){
             this.token = data.token;
             this.localStorageService.setItem('token', this.token);
+            this.router.navigate(['/accueil-admins']);
             console.log(this.token);  // Affiche le token dans la console
           }
           else console.log(data.message);
