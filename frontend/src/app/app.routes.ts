@@ -10,6 +10,11 @@ import { AccueilClientComponent } from './components/accueil-client/accueil-clie
 import { RdvClientComponent } from './components/rdv-client/rdv-client.component';
 import { HistoriqueClientComponent } from './components/historique-client/historique-client.component';
 import { DetailsHistoriqueClientComponent } from './components/details-historique-client/details-historique-client.component';
+import { OnerdvMecaComponent } from './components/onerdv-meca/onerdv-meca.component';
+import { Detail1rdvComponent } from './components/detail1rdv/detail1rdv.component';
+import { TwordvMecaComponent } from './components/twordv-meca/twordv-meca.component';
+import { DevisComponent } from './components/devis/devis.component';
+import { Details2rdvComponent } from './components/details2rdv/details2rdv.component';
 
 export const routes: Routes = [
     { path: 'logins', component: LoginComponent },  // Route pour article-list 
@@ -33,6 +38,7 @@ export const routes: Routes = [
     { path: 'calendar-admins', component: CalendarAdminComponent },  // Route pour article-list 
     { path: 'calendar-admins', redirectTo: 'calendar-admins', pathMatch: 'full' }, // Redirection  par défaut
 
+    // lien client rehetra
     { path: 'accueil-clients', component: AccueilClientComponent },  // Route pour article-list 
     { path: 'accueil-clients', redirectTo: 'accueil-clients', pathMatch: 'full' }, // Redirection  par défaut
 
@@ -44,4 +50,24 @@ export const routes: Routes = [
 
     { path: 'Details-historys-clients', component: DetailsHistoriqueClientComponent },  // Route pour article-list 
     { path: 'Details-historys-clients', redirectTo: 'Details-historys-clients', pathMatch: 'full' }, // Redirection  par défaut
+
+// lien meca rehetra    
+    { path: '1RDV-meca', component: OnerdvMecaComponent },  // Route pour article-list 
+    { path: '1RDV-meca', redirectTo: '1RDV-meca', pathMatch: 'full' }, // Redirection  par défaut
+
+    
+    { path: 'details1RDV', component: Detail1rdvComponent },  // Route pour article-list 
+    { path: 'details1RDV', redirectTo: 'details1RDV', pathMatch: 'full' }, // Redirection  par défaut
+
+    
+    { path: '2rdv', component: TwordvMecaComponent },  // Route pour article-list 
+    { path: '2rdv', redirectTo: '2rdv', pathMatch: 'full' }, // Redirection  par défaut
+
+    
+    { path: 'devis', component: DevisComponent },  // Route pour article-list 
+    { path: 'devis', redirectTo: 'devis', pathMatch: 'full' }, // Redirection  par défaut
+
+    
+    { path: 'details2RDV', component: Details2rdvComponent },  // Route pour article-list 
+    { path: 'details2RDV', redirectTo: 'details1RDV', pathMatch: 'full' }, // Redirection  par défaut
 ];
