@@ -97,19 +97,30 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Band</th>
-            <th>Model</th>
+            <th>Nom</th>
+            <th>Voiture</th>
+            <th>Prix</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Toyota</td>
-            <td>RAV 4</td>
-            <td style="text-align: right;">
-              <button class="btn btn-warning">Update</button>-
-              <button class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+            <!-- @for (article of articles; track article._id) {
+              <div>
+              <h2>{{ article.title }}</h2>
+              <p>{{ article.content }}</p>
+              <button (click)="deleteArticle(article._id)">Supprimer</button>
+              </div>
+              } -->
+           @for (piece of pieces; track piece._id) {
+            <tr>
+              <td>{{piece.nom}}</td>
+              <td>{{piece.voiture_id.model}} {{piece.voiture_id.marque_id.marque}}</td>
+              <td>{{piece.prix.$numberDecimal}}</td>
+              <td style="text-align: right;">
+                <button class="btn btn-warning">Update</button>-
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          }
           <!-- Add more rows as needed -->
         </tbody>
       </table>
@@ -135,27 +146,42 @@
           <h2>
             Add car
           </h2>
-          <form action="">
+          <!-- <form (ngSubmit)="addCar()" #voitureForm="ngForm">
+              <div>
+                <select name="marque" id="marque"  type="text" style="color: black;" [(ngModel)]="newCar.marque_id">
+                      <option *ngFor="let marque of marques" [value]="marque._id">{{ marque.nom }}</option>
+                </select>
+              </div>
+              <div>
+                <input id="model" name="model" type="text" placeholder="model" style="color: black;" [(ngModel)]="newCar.model"/>
+              </div>
+              <div class="d-flex ">
+                  <button  type="submit"
+                  [disabled]="voitureForm.invalid">
+                  Add
+                </button>
+              </div>
+            </form>-->
+            <form (ngSubmit)="addPiece()" #pieceForm="ngForm">
             <div>
-              <select name="marque" id="" type="text" style="color: black;">
-                <option value="">Toyota</option>
-                <option value="">Mazda</option>
+              <select id="marque_id" name="marque_id" (change)="onMarqueChange()" [(ngModel)]="newPiece.marque_id" style="color: black;">
+                  <option *ngFor="let marque of marques" [value]="marque._id">{{ marque.nom }}</option>
               </select>
             </div>
             <div>
-                <select name="model" id="" type="text" style="color: black;">
-                    <option value="">RAV 4</option>
-                    <option value="">BT-50</option>
+                <select name="voiture_id" id="voiture_id" [(ngModel)]="newPiece.voiture_id" style="color: black;">
+                    <option *ngFor="let voiture of voitures" [value]="voiture._id">{{ voiture.model }}</option>
                 </select>
             </div>
             <div>
-              <input name="piece" type="text" placeholder="piece" style="color: black;"/>
+              <input name="nom" id="nom" type="text" [(ngModel)]="newPiece.nom" placeholder="piece" style="color: black;"/>
             </div>
             <div>
-                <input name="prix" type="text" placeholder="price" style="color: black;"/>
+                <input name="prix" id="prix" type="text" [(ngModel)]="newPiece.prix" placeholder="price" style="color: black;"/>
               </div>
             <div class="d-flex ">
-              <button>
+                <button type="submit"
+                [disabled]="pieceForm.invalid">
                 Add
               </button>
             </div>
