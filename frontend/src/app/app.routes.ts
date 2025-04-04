@@ -15,14 +15,33 @@ import { Detail1rdvComponent } from './components/detail1rdv/detail1rdv.componen
 import { TwordvMecaComponent } from './components/twordv-meca/twordv-meca.component';
 import { DevisComponent } from './components/devis/devis.component';
 import { Details2rdvComponent } from './components/details2rdv/details2rdv.component';
+import { ChoixProfilComponent } from './components/choix-profil/choix-profil.component';
+import { MecaLoginComponent } from './components/meca-login/meca-login.component';
+import { ClientLoginComponent } from './components/client-login/client-login.component';
+import { ClientInscriptionComponent } from './components/client-inscription/client-inscription.component';
 
 export const routes: Routes = [
+
+    // profil
+    { path: 'choix', component: ChoixProfilComponent },  // Route pour article-list 
+    { path: '', redirectTo: 'choix', pathMatch: 'full' }, // Redirection  par défaut
+
+    { path: 'loginmeca', component: MecaLoginComponent },  // Route pour article-list 
+    { path: 'loginmeca', redirectTo: 'loginmeca', pathMatch: 'full' }, // Redirection  par
+
+    { path: 'loginclient', component: ClientLoginComponent },  // login client
+    { path: 'loginclient', redirectTo: 'loginclient', pathMatch: 'full' }, // Redirection  par
+    
+    { path: 'inscritpionclient', component: ClientInscriptionComponent },  // login client
+    { path: 'inscritpionclient', redirectTo: 'inscritpionclient', pathMatch: 'full' }, // Redirection  par 
+
     { path: 'logins', component: LoginComponent },  // Route pour article-list 
-    { path: '', redirectTo: 'logins', pathMatch: 'full' }, // Redirection  par défaut  
+    { path: 'logins', redirectTo: 'logins', pathMatch: 'full' }, // Redirection  par défaut  
 
     { path: 'inscription-admins', component: InscriptionAdminComponent },  // Route pour article-list 
     { path: 'inscription-admins', redirectTo: 'inscription-admins', pathMatch: 'full' }, // Redirection  par défaut   
 
+    // manager 
     { path: 'accueil-admins', component: AccueilAdminComponent },  // Route pour article-list 
     { path: 'accueil-admins', redirectTo: 'accueil-admins', pathMatch: 'full' }, // Redirection  par défaut   
 
