@@ -12,7 +12,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  login = { email: '', mdp: '' };
+  login = { email: 'marorakotobe@gmail.com', mdp: 'maro' };
   token='';
   constructor(
     private loginService: LoginService, 
