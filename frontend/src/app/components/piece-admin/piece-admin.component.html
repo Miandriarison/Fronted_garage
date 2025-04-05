@@ -146,22 +146,6 @@
           <h2>
             Add car
           </h2>
-          <!-- <form (ngSubmit)="addCar()" #voitureForm="ngForm">
-              <div>
-                <select name="marque" id="marque"  type="text" style="color: black;" [(ngModel)]="newCar.marque_id">
-                      <option *ngFor="let marque of marques" [value]="marque._id">{{ marque.nom }}</option>
-                </select>
-              </div>
-              <div>
-                <input id="model" name="model" type="text" placeholder="model" style="color: black;" [(ngModel)]="newCar.model"/>
-              </div>
-              <div class="d-flex ">
-                  <button  type="submit"
-                  [disabled]="voitureForm.invalid">
-                  Add
-                </button>
-              </div>
-            </form>-->
             <form (ngSubmit)="addPiece()" #pieceForm="ngForm">
             <div>
               <select id="marque_id" name="marque_id" (change)="onMarqueChange()" [(ngModel)]="newPiece.marque_id" style="color: black;">

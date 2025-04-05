@@ -72,36 +72,32 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form action="">
+            <form (ngSubmit)="addManager()" #managerForm="ngForm">
             <div>
-              <input type="text" name="name" placeholder="Name" style="color: rgb(63, 59, 59);"/>
+              <input id="nom" name="nom" type="text" name="name" placeholder="Name" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.nom"/>
             </div>
             <div>
-              <input type="text" name="firstname" placeholder="First name" style="color: rgb(63, 59, 59);"/>
+              <input id="prenom" type="text" name="prenom" placeholder="First name" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.prenom"/>
             </div>
             <div>
-              <input type="date" name="datedenaissance" placeholder="date of birth" style="color: rgb(63, 59, 59);"/>
+                <input id="email" type="email" name="email" placeholder="Email" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.email"/>
             </div>
             <div>
-              <input type="text" name="phonenumber" placeholder="Phone Number" style="color: rgb(63, 59, 59);"/>
+              <input id="datedenaissance" type="date" name="datedenaissance" placeholder="date of birth" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.datedenaissance"/>
             </div>
             <div>
-              <input type="email" name="mail" placeholder="Email" style="color: rgb(63, 59, 59);"/>
-            </div>
-            
-            <div>
-              <input type="text" name="adresse" placeholder="place" style="color: rgb(63, 59, 59);"/>
+              <input id="mdp"  type="password" name="mdp" placeholder="Password" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.mdp"/>
             </div>
             <div>
-              <input type="password" name="mdp" placeholder="Password" style="color: rgb(63, 59, 59);"/>
-            </div>
-            <div>
-              <input type="password" placeholder="Repeat your Password" style="color: rgb(63, 59, 59);"/>
+              <input id="mdp1" name="mdp1" type="password" placeholder="Repeat your Password" style="color: rgb(63, 59, 59);" [(ngModel)]="newManager.mdp1"/>
             </div>
             <div class="d-flex ">
-              <button>
-                Sign up
-              </button>
+                <div class="d-flex ">
+                    <button  type="submit"
+                    [disabled]="managerForm.invalid">
+                    Add
+                  </button>
+                </div>
             </div>
           </form>
         </div>
