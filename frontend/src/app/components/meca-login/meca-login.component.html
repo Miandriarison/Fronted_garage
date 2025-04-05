@@ -66,19 +66,21 @@
             <h2>
               Sign in
             </h2>
-          <form action="">
-            <div>
-              <input type="email" placeholder="Email" style="color: rgb(63, 59, 59);"/>
-            </div>
-            <div>
-              <input type="password" placeholder="Password" style="color: rgb(63, 59, 59);"/>
-            </div>
-            <div class="d-flex ">
-              <button>
-                Sign in
-              </button>
-            </div>
-          </form>
+            <form (ngSubmit)="loginMecanicien()" #loginForm="ngForm">
+              <div>
+                <input id="email" name="email" type="email" placeholder="Email" style="color: rgb(63, 59, 59);" [(ngModel)]="login.email"
+                required/>
+              </div>
+              <div>
+                <input id="mdp" name="mdp" type="password" placeholder="Password" style="color: rgb(63, 59, 59);" [(ngModel)]="login.mdp"
+                required/>
+              </div>
+              <div class="d-flex ">
+                <button type="submit"  [disabled]="loginForm.invalid">
+                  Sign in
+                </button>
+              </div>
+            </form>
         </div>
         <div class="col-md-4"></div>
       </div>
