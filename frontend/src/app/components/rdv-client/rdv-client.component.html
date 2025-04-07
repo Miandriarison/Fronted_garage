@@ -99,21 +99,29 @@
           <h2>
             Add appoitment
           </h2>
-          <form action="">
+          <form (ngSubmit)="addRdv()" #rdvForm="ngForm">
             <div>
-              <input type="text" name="car" placeholder="Car" style="color: black;"/>
+                <select id="marque_id" name="marque_id" (change)="onMarqueChange()" [(ngModel)]="newRdv.marque_id" style="color: black;">
+                    <option *ngFor="let marque of marques" [value]="marque._id">{{ marque.nom }}</option>
+                </select>
+              </div>
+              <div>
+                  <select name="voiture_id" id="voiture_id" [(ngModel)]="newRdv.voiture_id" style="color: black;">
+                      <option *ngFor="let voiture of voitures" [value]="voiture._id">{{ voiture.model }}</option>
+                  </select>
+              </div>
+            <div>
+              <input type="text" id="adresse" name="adresse" [(ngModel)]="newRdv.adresse" placeholder="Place" style="color: black;"/>
             </div>
             <div>
-              <input type="text" name="place" placeholder="Place" style="color: black;"/>
+              <input type="text" id="tel" name="tel" [(ngModel)]="newRdv.tel" placeholder="Phone Number" style="color: black;"/>
             </div>
             <div>
-              <input type="text" placeholder="Phone Number" style="color: black;"/>
-            </div>
-            <div>
-              <input type="text" name="Description" class="message-box" placeholder="Description" style="color: black;"/>
+              <input type="text" id="description" name="description" [(ngModel)]="newRdv.description" class="message-box" placeholder="Description" style="color: black;"/>
             </div>
             <div class="d-flex ">
-              <button>
+                <button type="submit"
+                [disabled]="rdvForm.invalid">
                 Add
               </button>
             </div>
