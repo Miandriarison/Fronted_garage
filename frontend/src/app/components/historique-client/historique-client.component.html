@@ -86,30 +86,44 @@
   <section class="table_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2> All  mechanic </h2>
+        <h2> Reservations </h2>
       </div>
+      <!-- @for (mecanicien of mecaniciens; track mecanicien._id) {
+        <tr>
+          <td>{{ mecanicien.nom }}</td>
+          <td>{{ mecanicien.prenom }}</td>
+          <td>{{ mecanicien.email }}</td>
+          <td>{{ mecanicien.datedenaissance }}</td>
+          <td>{{ mecanicien.salaire.$numberDecimal }}</td>
+          <td style="text-align: right;">
+            <button class="btn btn-warning">Update</button>-
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+       } -->
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Client</th>
-            <th>Mechanic</th>
+            <th>Marque</th>
+            <th>Model</th>
+            <th>Adresse</th>
+            <th>Telephone</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
+          @for (rdv of listes_rdv; track rdv._id) {
           <tr>
-            <td>Project 1</td>
-            <td>Description for project 1</td>
+            <td>{{rdv.voiture_id.marque_id.nom}}</td>
+            <td>{{rdv.voiture_id.model}}</td>
+            <td>{{rdv.adresse}}</td>
+            <td>{{rdv.tel}}</td>
+            <td>{{rdv.description}}</td>
             <td style="text-align: right;">
               <a class="btn btn-warning" href="Details-historys-clients">Details</a>
             </td>
           </tr>
-          <tr>
-            <td>Project 1</td>
-            <td>Description for project 1</td>
-            <td style="text-align: right;">
-              <a class="btn btn-warning" href="Details-historys-clients">Details</a>
-            </td>
-          </tr>
+        }
           <!-- Add more rows as needed -->
         </tbody>
       </table>

@@ -11,12 +11,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
   templateUrl: './rdv-client.component.html',
   styleUrl: './rdv-client.component.css'
 })
-// client_id:  { type: mongoose.Schema.Types.ObjectId, ref: 'client', required: true },
-//     voiture_id: { type: mongoose.Schema.Types.ObjectId, ref: 'voiture', required: true },
-//     adresse:{ type: String, required: true },
-//     description:{ type: String, required: true },
-//     tel: { type: String, required: true },
-//     etat:{type:Number ,required: true, validate:{
+
 export class RdvClientComponent {
   newRdv = {marque_id:'', client_id: '', voiture_id: '', adresse:'', description:'', tel:'', etat:0 };
   marques: any[] = [];
